@@ -89,10 +89,14 @@ export COLOR_LIGHT_GRAY='\e[0;37m'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
 # Quick access to my blog project
 alias blog='cd /Users/sarah/code/ursooperduper.github.io && \. tmux-ursoop-sess'
 # Get just the homebrew updates
 alias brewup='brew update; brew upgrade -all'
+alias cheat='cd /Users/sarah/code/cheatsheets && \. tmux-cheat-sess'
 # Where most of my code lives
 alias code='cd ~/code'
 alias cl='clear'
@@ -103,10 +107,16 @@ alias db='cd ~/Dropbox'
 alias df='df -h'
 alias doc='cd ~/Documents'
 alias dl='cd ~/Downloads'
+alias dt='cd ~/Desktop'
+alias d='cd ~/Dropbox'
 # Calculate total disk usage for a folder
 alias du='du -h -c'
 # Disk usage with human sizes and minimal depth
 alias du1='du -h --max-depth=1'
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 # Find
 alias fn='find . -name'
 alias g='git'
@@ -115,6 +125,7 @@ alias h='history'
 alias home='cd ~'
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 # Show me good stuff in a directory listing
@@ -131,11 +142,12 @@ alias reload='. ~/.bashrc'
 alias rj='ruby ~/code/ruby-findjiras/findjiras.rb'
 # Totally remove it
 alias rm!='rm -rf'
-alias s='subl .'
 alias serve='python -m SimpleHTTPServer 8000'
 # Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade -all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
 alias vi='vim' # Use vimmmmmmm
+# Get week number
+alias week='date +%V'
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 alias x='exit' # Close window
@@ -246,7 +258,6 @@ PS1='\[\e[00;36m\]\W\[\e[0m\]$(__git_ps1 " [%s]") $ '
 #export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 #export PS1='\u:\W ⚡ '
 
-
 ################################################################################
 # Fun stuff                                                                    #
 ################################################################################
@@ -258,8 +269,6 @@ alias :wq='echo LOLVIM'
 # Because http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
-
 
 ################################################################################
 # Command History                                                              #
