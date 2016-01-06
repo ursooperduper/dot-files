@@ -1,4 +1,4 @@
-execute pathogen#infect()
+"execute pathogen#infect()
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -158,6 +158,6 @@ let g:colorscheme_switcher_keep_background = 1
 
 let g:vim_markdown_folding_disabled=1
 
-source ~/vcomments.vim
-map <C-c> :call Comment()<CR>
-map <C-u> :call Uncomment()<CR>
+"source ~/vcomments.vim
+"map <C-c> :call Comment()<CR>
+"map <C-u> :call Uncomment()<CR>

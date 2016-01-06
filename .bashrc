@@ -22,19 +22,23 @@
 set -o vi
 
 # Path
-export PATH=/Users/sarah/.rvm/gems/ruby-2.1.2/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin/env:/opt/local/bin:/Users/sarah/code/jira/"$(brew --prefix)"/gems/gli-1.6.0/bin:/usr/local/Cellar/qt/4.8.2/bin:/Applications/mongodb-osx-x86_64-2.6.6/bin:$PATH
+#export PATH=/Users/sarah/.rvm/gems/ruby-2.1.2/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin/env:/opt/local/bin:/Users/sarah/code/jira/"$(brew --prefix)"/gems/gli-1.6.0/bin:/usr/local/Cellar/qt/4.8.2/bin:/Applications/mongodb-osx-x86_64-2.6.6/bin:$PATH
+
+export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin/env:/opt/local/bin:$HOME/.rvm/bin:$PATH
 
 export EDITOR='atom'
 export GEM_HOME="$(brew --prefix)"
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 if [ -f ~/.bash_bindings ]; then
   source ~/.bash_bindings
 fi
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+# if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#   . $(brew --prefix)/etc/bash_completion
+# fi
+
+source "$(brew --prefix)/etc/bash_completion"
 
 # rvm config
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
@@ -296,3 +300,5 @@ function hi(){
     command history | tail -20;
   fi
 }
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
