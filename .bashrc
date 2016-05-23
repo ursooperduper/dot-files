@@ -164,6 +164,11 @@ alias hide='defaults write com.apple.Finder AppleShowAllFiles NO; killall Finder
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
+# https://github.com/nvbn/thefuck
+eval "$(thefuck --alias)"
+# You can use whatever you want as an alias, like for Mondays:
+eval "$(thefuck --alias FUCK)"
+
 # Create a directory and cd into it
 function mkcd () {
   mkdir -p "$@" && eval cd "\"\$$#\"";
