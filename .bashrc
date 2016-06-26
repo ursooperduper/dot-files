@@ -24,7 +24,7 @@ set -o vi
 # Path
 #export PATH=/Users/sarah/.rvm/gems/ruby-2.1.2/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin/env:/opt/local/bin:/Users/sarah/code/jira/"$(brew --prefix)"/gems/gli-1.6.0/bin:/usr/local/Cellar/qt/4.8.2/bin:/Applications/mongodb-osx-x86_64-2.6.6/bin:$PATH
 
-export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin/env:/opt/local/bin:$HOME/.rvm/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/heroku/bin:/usr/bin/env:/opt/local/bin:$HOME/.rvm/bin:$PATH
 
 export EDITOR='atom'
 export GEM_HOME="$(brew --prefix)"
