@@ -309,3 +309,6 @@ function hi(){
 }
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# kqueue is broken on os x so don't use it
+export EVENT_NOKQUEUE=1
