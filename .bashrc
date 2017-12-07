@@ -24,7 +24,7 @@ set -o vi
 # Path
 #export PATH=/Users/sarah/.rvm/gems/ruby-2.1.2/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin/env:/opt/local/bin:/Users/sarah/code/jira/"$(brew --prefix)"/gems/gli-1.6.0/bin:/usr/local/Cellar/qt/4.8.2/bin:/Applications/mongodb-osx-x86_64-2.6.6/bin:$PATH
 
-export PATH=/usr/local/bin:/usr/local/heroku/bin:/usr/bin/env:/opt/local/bin:$HOME/.rvm/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/heroku/bin:/usr/bin/env:/opt/local/bin:$HOME/.rbenv/bin:$PATH
 
 export EDITOR='atom'
 export GEM_HOME="$(brew --prefix)"
@@ -43,6 +43,10 @@ source "$(brew --prefix)/etc/bash_completion"
 # rvm config
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 if [[ -s $HOME/.rvm/scripts/completion ]] ; then source $HOME/.rvm/scripts/completion ; fi
+
+
+# Automatically invoke bundler for rake, if necessary.
+rake() { if [ -e ./Gemfile.lock ]; then bundle exec rake "$@"; else /usr/bin/env rake "$@"; fi; }
 
 
 ################################################################################
@@ -102,7 +106,7 @@ alias blog='cd /Users/sarah/code/ursooperduper.github.io && \. tmux-ursoop-sess'
 alias brewup='brew update; brew upgrade -all'
 alias cheat='cd /Users/sarah/code/cheatsheets && \. tmux-cheat-sess'
 # Where most of my code lives
-alias code='cd ~/code'
+alias proj='cd ~/code'
 alias cl='clear'
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -312,3 +316,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # kqueue is broken on os x so don't use it
 export EVENT_NOKQUEUE=1
+
+
+eval "$(rbenv init -)"
